@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRIM-edicine, Inc. | Repairing Life</title>
+<meta name="description" content="TRIM-edicine is a Columbus, Ohio biotechnology company developing MG53, MG29, and ATAP: protein therapeutics built on the body's own repair biology.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0f2436;
+    --ink-2:#15304a;
+    --ink-3:#1c3c5a;
+    --paper:#eef2ee;
+    --paper-dim:#c3cdc9;
+    --verdigris:#5aa397;
+    --verdigris-dim:#3d6f68;
+    --copper:#c07f52;
+    --line: rgba(238,242,238,0.14);
+    --line-strong: rgba(238,242,238,0.28);
+    --maxw: 1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    line-height:1.1;
+    margin:0 0 .5em;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0 0 1em;}
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    font-family:'Manrope', sans-serif;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--verdigris);
+    margin-bottom:14px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;height:1px;
+    background:var(--verdigris);
+    display:inline-block;
+  }
+
+  /* ---- thread motif (tripartite = three interlaced strands) ---- */
+  .thread{display:block; width:100%; height:26px; margin:6px 0;}
+  .thread-section{display:flex; justify-content:center; padding:56px 0;}
+
+  /* ---- nav ---- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(15,36,54,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:14px; padding-bottom:14px;
+    gap:20px;
+  }
+  .brand{display:flex; align-items:center; gap:12px; text-decoration:none;}
+  .brand img{height:34px; width:auto; display:block; background:var(--paper); border-radius:4px; padding:2px 6px;}
+  .brand span{font-family:'Fraunces', serif; font-size:18px; font-weight:500; color:var(--paper); white-space:nowrap;}
+  .navlinks{display:flex; gap:26px; font-size:14.5px;}
+  .navlinks a{text-decoration:none; color:var(--paper-dim); transition:color .15s;}
+  .navlinks a:hover{color:var(--verdigris);}
+  .navcta{
+    font-size:14px; text-decoration:none;
+    border:1px solid var(--line-strong);
+    padding:8px 16px; border-radius:99px;
+    color:var(--paper); white-space:nowrap;
+    transition:border-color .15s, background .15s;
+  }
+  .navcta:hover{border-color:var(--verdigris); background:rgba(90,163,151,0.1);}
+  .menu-btn{display:none; background:none; border:1px solid var(--line-strong); color:var(--paper); border-radius:8px; padding:8px 10px; font-size:16px;}
+
+  /* ---- hero ---- */
+  .hero{padding:96px 0 64px; position:relative; overflow:hidden;}
+  .hero::before{
+    content:"";
+    position:absolute; inset:-20% -10% auto -10%;
+    height:520px;
+    background: radial-gradient(ellipse at 30% 20%, rgba(90,163,151,0.14), transparent 60%),
+                radial-gradient(ellipse at 80% 0%, rgba(192,127,82,0.10), transparent 55%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative; max-width:760px;}
+  .hero h1{font-size:clamp(40px, 7vw, 74px); color:var(--paper);}
+  .hero h1 em{font-style:italic; color:var(--copper);}
+  .hero p.lede{font-size:18px; color:var(--paper-dim); max-width:600px;}
+  .cta-row{display:flex; gap:14px; margin-top:28px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; text-decoration:none;
+    padding:13px 24px; border-radius:99px;
+    font-size:14.5px; font-weight:500;
+    font-family:'IBM Plex Sans', sans-serif;
+    transition:transform .15s, background .15s, border-color .15s;
+  }
+  .btn-primary{background:var(--verdigris); color:#0b1c28;}
+  .btn-primary:hover{transform:translateY(-1px); background:#68b1a4;}
+  .btn-ghost{border:1px solid var(--line-strong); color:var(--paper);}
+  .btn-ghost:hover{border-color:var(--verdigris); color:var(--verdigris);}
+
+  /* ---- stat strip ---- */
+  .stats{
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    background:var(--ink-2);
+  }
+  .stat-grid{
+    display:grid; grid-template-columns:repeat(4,1fr);
+    padding:36px 0;
+  }
+  .stat{padding:0 24px; border-left:1px solid var(--line);}
+  .stat:first-child{border-left:none;}
+  .stat .num{font-family:'Manrope', sans-serif; font-weight:700; font-size:30px; color:var(--verdigris);}
+  .stat .lbl{font-size:13.5px; color:var(--paper-dim); margin-top:6px;}
+
+  /* ---- generic section ---- */
+  section{padding:88px 0;}
+  .section-head{max-width:640px; margin-bottom:48px;}
+  .section-head h2{font-size:clamp(28px,3.6vw,40px); color:var(--paper);}
+  .section-head p{color:var(--paper-dim); font-size:16.5px;}
+
+  /* ---- overview two-col ---- */
+  .overview-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:start;}
+  .overview-grid p{color:var(--paper-dim); font-size:16px;}
+  .overview-side{
+    border:1px solid var(--line); border-radius:16px; padding:28px;
+    background:linear-gradient(180deg, var(--ink-3), var(--ink-2));
+  }
+  .overview-side h3{font-size:16px; color:var(--verdigris); font-family:'Manrope', sans-serif; text-transform:uppercase; letter-spacing:.05em; font-weight:600;}
+  .overview-side ul{margin:0; padding-left:18px; color:var(--paper-dim); font-size:14.5px;}
+  .overview-side li{margin-bottom:10px;}
+
+  /* ---- protein cards ---- */
+  .protein-grid{display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:22px;}
+  .card{
+    border:1px solid var(--line); border-radius:18px; padding:30px;
+    background:var(--ink-2);
+    display:flex; flex-direction:column;
+  }
+  .card.lead{background:linear-gradient(160deg, #163a4a, var(--ink-2)); border-color:var(--line-strong);}
+  .card .tag{font-family:'Manrope', sans-serif; font-weight:600; font-size:12px; color:var(--copper); letter-spacing:.04em; text-transform:uppercase; margin-bottom:10px;}
+  .card h3{font-size:24px; color:var(--paper); margin-bottom:4px;}
+  .card .subtitle{font-size:13.5px; color:var(--paper-dim); margin-bottom:16px;}
+  .card p{font-size:14.5px; color:var(--paper-dim); flex-grow:1;}
+  .card .fact{
+    font-size:13px; color:var(--verdigris); border-top:1px solid var(--line);
+    padding-top:14px; margin-top:14px; font-family:'Manrope', sans-serif; font-weight:600;
+  }
+
+  /* ---- platform list ---- */
+  .platform-list{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .platform-item{border-top:2px solid var(--verdigris); padding-top:18px;}
+  .platform-item h4{font-size:19px; color:var(--paper);}
+  .platform-item p{font-size:14.5px; color:var(--paper-dim);}
+
+  /* ---- MG53 deep dive ---- */
+  .deepdive{
+    border-radius:20px; padding:56px;
+    background:radial-gradient(ellipse at top left, #1c4256, var(--ink-2));
+    border:1px solid var(--line-strong);
+    display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center;
+  }
+  blockquote{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:500;
+    font-size:23px; line-height:1.35; color:var(--paper); margin:0 0 18px;
+    border-left:2px solid var(--copper); padding-left:22px;
+  }
+  .deepdive .facts{display:flex; flex-direction:column; gap:16px;}
+  .deepdive .facts .row{display:flex; gap:14px; align-items:baseline;}
+  .deepdive .facts .k{font-family:'Manrope', sans-serif; font-weight:600; color:var(--copper); font-size:13px; min-width:96px;}
+  .deepdive .facts .v{font-size:14.5px; color:var(--paper-dim);}
+
+  /* ---- publications ---- */
+  .pub-list{display:flex; flex-direction:column;}
+  .pub{
+    display:grid; grid-template-columns:120px 1fr; gap:24px;
+    padding:22px 0; border-bottom:1px solid var(--line);
+  }
+  .pub:first-child{border-top:1px solid var(--line);}
+  .pub .year{font-family:'Manrope', sans-serif; font-weight:700; color:var(--verdigris); font-size:14px;}
+  .pub h4{font-size:16.5px; margin-bottom:4px; color:var(--paper); font-weight:500;}
+  .pub .meta{font-size:13.5px; color:var(--paper-dim);}
+  .pub a.doi{font-size:13px; color:var(--copper); text-decoration:none; border-bottom:1px dotted var(--copper);}
+  .pub-note{font-size:13.5px; color:var(--paper-dim); margin-top:22px;}
+
+  /* ---- team ---- */
+  .team-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:22px;}
+  .team-card{border:1px solid var(--line); border-radius:16px; padding:26px; background:var(--ink-2);}
+  .team-card.founder{grid-column:1 / -1; background:linear-gradient(160deg,#163a4a,var(--ink-2)); border-color:var(--line-strong);}
+  .team-card h3{font-size:19px; color:var(--paper); margin-bottom:2px;}
+  .team-card .role{font-family:'Manrope', sans-serif; font-weight:600; font-size:12px; color:var(--verdigris); text-transform:uppercase; letter-spacing:.04em; margin-bottom:12px;}
+  .team-card p{font-size:14px; color:var(--paper-dim); margin:0;}
+  .team-kicker{font-family:'Manrope', sans-serif; font-weight:600; font-size:12.5px; color:var(--paper-dim); text-transform:uppercase; letter-spacing:.06em; margin:38px 0 16px;}
+  .team-kicker:first-of-type{margin-top:0;}
+
+  /* ---- contact ---- */
+  .contact-box{
+    border:1px solid var(--line-strong); border-radius:20px; padding:52px;
+    background:linear-gradient(160deg, #163a4a, var(--ink-2));
+    display:grid; grid-template-columns:1.2fr 1fr; gap:48px;
+  }
+  .contact-box h2{font-size:clamp(26px,3.4vw,36px);}
+  .contact-details{font-family:'Manrope', sans-serif; font-weight:500; font-size:14.5px; color:var(--paper-dim); display:flex; flex-direction:column; gap:12px;}
+  .contact-details a{color:var(--verdigris); text-decoration:none;}
+
+  /* ---- footer ---- */
+  footer{border-top:1px solid var(--line); padding:48px 0 40px;}
+  .footer-grid{display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px; align-items:flex-start;}
+  .footer-links{display:flex; gap:20px; flex-wrap:wrap; font-size:13.5px; color:var(--paper-dim);}
+  .footer-links a{text-decoration:none;}
+  .footer-links a:hover{color:var(--verdigris);}
+  .disclaimer{font-size:12.5px; color:var(--paper-dim); opacity:.8; max-width:640px; margin-top:24px;}
+  .copyright{font-size:13px; color:var(--paper-dim);}
+
+  @media (max-width: 880px){
+    .navlinks, .navcta{display:none;}
+    .menu-btn{display:inline-block;}
+    .overview-grid, .deepdive, .contact-box{grid-template-columns:1fr;}
+    .protein-grid{grid-template-columns:1fr;}
+    .platform-list{grid-template-columns:1fr;}
+    .team-grid{grid-template-columns:1fr;}
+    .team-card.founder{grid-column:auto;}
+    .stat-grid{grid-template-columns:1fr 1fr;}
+    .stat{border-left:none; border-top:1px solid var(--line); padding-top:16px;}
+    .pub{grid-template-columns:70px 1fr;}
+    .contact-box, .deepdive{padding:32px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap">
+    <a href="#top" class="brand">
+      <img src="http://www.trim-edicine.com/wp-content/uploads/2015/04/Logo-Full-Color-Large2.jpg" alt="TRIM-edicine logo">
+    </a>
+    <div class="navlinks">
+      <a href="#overview">Overview</a>
+      <a href="#proteins">Proteins</a>
+      <a href="#platform">Platform</a>
+      <a href="#evidence">Evidence</a>
+      <a href="#team">Team</a>
+    </div>
+    <a href="#contact" class="navcta">Get in touch</a>
+    <button class="menu-btn" aria-label="Menu">&#9776;</button>
+  </nav>
+</header>
+
+<div id="top"></div>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="eyebrow">TRIM-edicine, Inc. &middot; Columbus, Ohio</div>
+    <h1>Repairing <em>Life.</em></h1>
+    <p class="lede">A protein-therapeutics company built around MG53 and the TRIM family of proteins: the repair machinery the body already carries for sealing damaged cells and calming the inflammation that follows. Founded in 2008 as a university spin-off, TRIM-edicine develops biologics for the tissue damage that current medicine can't yet fix.</p>
+    <div class="cta-row">
+      <a href="#platform" class="btn btn-primary">See the technology</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="wrap stat-grid">
+    <div class="stat"><div class="num">2008</div><div class="lbl">Founded as a Rutgers &amp; Ohio State spin-off</div></div>
+    <div class="stat"><div class="num">3</div><div class="lbl">Protein platforms in development</div></div>
+    <div class="stat"><div class="num">99%+</div><div class="lbl">Purity achieved in scaled MG53 manufacturing</div></div>
+    <div class="stat"><div class="num">Global</div><div class="lbl">Patent protection secured on MG53</div></div>
+  </div>
+</div>
+
+<section id="overview">
+  <div class="wrap overview-grid">
+    <div>
+      <div class="eyebrow">What TRIM-edicine is</div>
+      <h2>Turning the body's own repair signal into medicine</h2>
+      <p>TRIM-edicine is a privately held biotechnology company developing novel biopharmaceutical products for medical needs that remain largely unmet: oral healthcare, dermal wounds, ischemia and reperfusion injury, sports medicine, and muscular dystrophy. At its core sits a small family of proteins with unusual biological properties, each one acting on cellular pathways that go wrong in disease.</p>
+      <p>Research and development at TRIM-edicine is focused on building the proof of concept behind each protein platform, then pairing that evidence with partners across the biomedical field who can carry it toward patients. As of 2015, the company holds global patent protection on MG53, covering both composition and use.</p>
+    </div>
+    <div class="overview-side">
+      <h3>At a glance</h3>
+      <ul>
+        <li>Headquartered at 1275 Kinnear Road, Columbus, Ohio</li>
+        <li>Founded by Dr. Jianjie Ma, discoverer of MG53</li>
+        <li>Grant-supported, including SBIR and QTDP awards from the U.S. government</li>
+        <li>Preclinical proof of concept across three protein platforms: MG53, MG29, and ATAP</li>
+        <li>Scientific advisory board spanning cardiology, regulatory affairs, and IP strategy</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="proteins">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">The proteins</div>
+      <h2>Three platforms, one shared biology</h2>
+      <p>TRIM-edicine builds around proteins that already do the work of repair inside the body. Each one is being developed toward a different unmet need.</p>
+    </div>
+    <div class="protein-grid">
+      <div class="card lead">
+        <div class="tag">TRIM72 &middot; tissue damage</div>
+        <h3>MG53</h3>
+        <div class="subtitle">Mitsugumin53</div>
+        <p>MG53 is the first known essential molecular component of the cell's own membrane-repair process. When a membrane is injured and the oxidative outside world gets in, MG53 gathers into a vesicle and moves straight to the wound site to help reseal it. Beyond that first response, it also appears to calm the inflammation that chronic injuries leave behind. In animal studies, spanning mouse, pig, and monkey models, MG53 has supported repair across the brain, heart, lung, kidney, liver, and eye.</p>
+        <div class="fact">99%+ purity at scale &middot; targeting IND submissions in the US and China</div>
+      </div>
+      <div class="card">
+        <div class="tag">Synaptophysin family &middot; muscle aging</div>
+        <h3>MG29</h3>
+        <div class="subtitle">Mitsugumin29</div>
+        <p>MG29 is a skeletal-muscle protein needed for normal muscle function. Mice without it develop a fragmented sarcoplasmic reticulum, swelling in the transverse tubules, and irregular calcium signaling under stress, the same pattern seen in naturally aging muscle. That overlap suggests falling MG29 levels may be part of how muscle ages, and that restoring it could help.</p>
+        <div class="fact">Preclinical &middot; aging-related muscle disorders</div>
+      </div>
+      <div class="card">
+        <div class="tag">Peptide therapeutic &middot; oncology</div>
+        <h3>ATAP</h3>
+        <div class="subtitle">Apoptosis-targeting peptide</div>
+        <p>ATAP works through tail-anchoring domains that control mitochondrial membrane permeability, pushing cancer cells toward programmed death. The lead candidate, ATAP-M8, completed preclinical studies and received class 1 innovative drug candidate designation in China, beginning Phase I trials with late-stage cancer patients in March 2022.</p>
+        <div class="fact">Phase I &middot; late-stage cancers, per company records</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="platform">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">The platform</div>
+      <h2>Three ways to apply the same biology</h2>
+      <p>Rather than a single drug, TRIM-edicine develops three parallel technology platforms, each suited to a different kind of unmet need.</p>
+    </div>
+    <div class="platform-list">
+      <div class="platform-item">
+        <h4>Protein therapeutics</h4>
+        <p>Recombinant protein delivered directly, aimed at tissue repair in chronic disease and traumatic injury.</p>
+      </div>
+      <div class="platform-item">
+        <h4>Regenerative biologics</h4>
+        <p>Approaches for genetic disorders in which cells lose their normal capacity for plasticity and self-repair.</p>
+      </div>
+      <div class="platform-item">
+        <h4>Bioactive peptides</h4>
+        <p>Peptide fragments developed for pharmaceutical and cosmeceutical applications.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="science">
+  <div class="wrap">
+    <div class="deepdive">
+      <div>
+        <div class="eyebrow">The active biology</div>
+        <blockquote>"Following membrane damage, the entry of the oxidative extracellular environment causes MG53 to oligomerize and translocate to the injury site, initiating repair."</blockquote>
+        <p style="color:var(--paper-dim); font-size:14.5px;">TRIM-edicine's founding science, as described in the company's own technology overview.</p>
+      </div>
+      <div class="facts">
+        <div class="row"><span class="k">Organs</span><span class="v">Brain, heart, lung, kidney, liver, and eye, across mouse, pig, and monkey models</span></div>
+        <div class="row"><span class="k">Purity</span><span class="v">Scaled manufacturing of MG53 with purity over 99%</span></div>
+        <div class="row"><span class="k">Path</span><span class="v">Preclinical studies underway ahead of IND submissions to China and the US FDA</span></div>
+        <div class="row"><span class="k">Learn more</span><span class="v"><a href="https://www.youtube.com/watch?v=GSdGpF_GFss" style="color:var(--verdigris); text-decoration:none; border-bottom:1px dotted var(--verdigris);">A short TEDx introduction to MG53 &#8599;</a></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="evidence">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Peer-reviewed science</div>
+      <h2>Selected publications behind MG53</h2>
+      <p>Decades of independent, peer-reviewed work underpin the platform. Each title links to its source.</p>
+    </div>
+    <div class="pub-list">
+      <div class="pub">
+        <div class="year">2009</div>
+        <div>
+          <h4>MG53 nucleates assembly of cell membrane repair machinery</h4>
+          <div class="meta">Cai et al. &middot; Nature Cell Biology &middot; the foundational paper identifying MG53 as a core organizer of membrane repair.</div>
+          <a class="doi" href="https://doi.org/10.1038/ncb1812">doi.org/10.1038/ncb1812</a>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="year">2012</div>
+        <div>
+          <h4>Recombinant MG53 protein modulates therapeutic cell-membrane repair in muscular dystrophy</h4>
+          <div class="meta">Weisleder et al. &middot; Science Translational Medicine &middot; translational proof that recombinant MG53 restores membrane integrity.</div>
+          <a class="doi" href="https://doi.org/10.1126/scitranslmed.3003921">doi.org/10.1126/scitranslmed.3003921</a>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="year">2015</div>
+        <div>
+          <h4>MG53-mediated cell membrane repair protects against acute kidney injury</h4>
+          <div class="meta">Duann et al. &middot; Science Translational Medicine &middot; recombinant MG53 protected mice from ischemic and drug-induced kidney injury.</div>
+          <a class="doi" href="https://doi.org/10.1126/scitranslmed.3010755">doi.org/10.1126/scitranslmed.3010755</a>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="year">2019</div>
+        <div>
+          <h4>Sustained elevation of MG53 increases tissue regenerative capacity</h4>
+          <div class="meta">Bian et al. &middot; Nature Communications &middot; systemic MG53 boosted regeneration across tissues, with no adverse effect on glucose or metabolism.</div>
+          <a class="doi" href="https://doi.org/10.1038/s41467-019-12483-0">doi.org/10.1038/s41467-019-12483-0</a>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="year">2021</div>
+        <div>
+          <h4>MG53 suppresses NF-&kappa;B activation to mitigate age-related heart failure</h4>
+          <div class="meta">Wang et al. &middot; JCI Insight &middot; evidence of MG53's broader anti-inflammatory, tissue-protective reach beyond any single organ.</div>
+          <a class="doi" href="https://doi.org/10.1172/jci.insight.148375">doi.org/10.1172/jci.insight.148375</a>
+        </div>
+      </div>
+    </div>
+    <p class="pub-note">MG53 evidence spans preclinical, translational, and early clinical work. Statements here describe documented research findings and are not approved health claims. For the full publication list, visit <a href="https://www.trim-edicine.com/technology/" style="color:var(--verdigris);">trim-edicine.com/technology</a>.</p>
+  </div>
+</section>
+
+<section id="team">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Leadership</div>
+      <h2>Built by the people who discovered the biology</h2>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card founder">
+        <h3>Jianjie Ma, PhD</h3>
+        <div class="role">Founder</div>
+        <p>Discoverer of MG53 and holder of the Karl P. Klassen Chair of Thoracic Surgery in the Department of Surgery at The Ohio State University, where he is a Davis Heart and Lung Research Institute investigator. Trained in physics at Wuhan University and in physiology and biophysics at Baylor College of Medicine, he has authored or co-authored more than 150 peer-reviewed papers and previously served as an Established Investigator of the American Heart Association. His research spans gene discovery and protein therapy in tissue repair, muscular dystrophy, cardiovascular disease, and cancer biology.</p>
+      </div>
+    </div>
+
+    <div class="team-kicker">Management board</div>
+    <div class="team-grid">
+      <div class="team-card">
+        <h3>Changhua Qiu</h3>
+        <div class="role">CEO</div>
+        <p>Two decades in venture capital and private equity across biotech, medical device, and CRO investing. Leads business development, corporate strategy, and investor outreach at TRIM-edicine. MBA from Columbia Business School and a doctorate from the Colorado School of Mines.</p>
+      </div>
+      <div class="team-card">
+        <h3>Tao Tan, PhD</h3>
+        <div class="role">Vice President</div>
+        <p>Leads research and development at TRIM-edicine, which she joined in 2009. Trained in medicine in China, with a PhD in physiology and integrative biology from Rutgers, Robert Wood Johnson Medical School, and co-author of more than 30 publications in molecular medicine.</p>
+      </div>
+    </div>
+
+    <div class="team-kicker">Scientific advisory board</div>
+    <div class="team-grid">
+      <div class="team-card">
+        <h3>William T. Abraham, MD</h3>
+        <div class="role">Cardiovascular medicine</div>
+        <p>Professor of Internal Medicine and Chief of the Division of Cardiovascular Medicine at The Ohio State University College of Medicine. Harvard-trained, with more than 700 papers, abstracts, and book chapters, and a site Principal Investigator on more than 100 multicenter clinical trials. Advises on the preclinical and clinical path for MG53.</p>
+      </div>
+      <div class="team-card">
+        <h3>Elizabeth John, PhD</h3>
+        <div class="role">Regulatory affairs</div>
+        <p>More than two decades in pharmaceutical development and regulatory affairs across NeoRx, NewBiotics, Celmed Biosciences, Proacta, Centegen, and EnzymeRx, including filing TRIM-edicine's first IND. PhD in Chemistry from Rutgers University.</p>
+      </div>
+    </div>
+
+    <div class="team-kicker">IP consultant</div>
+    <div class="team-grid">
+      <div class="team-card" style="grid-column:1 / -1;">
+        <h3>Rick Matos, PhD</h3>
+        <div class="role">Founder, Innovar LLC</div>
+        <p>Three decades in the pharmaceutical arena as researcher, patent practitioner, and consultant, helping build and manage the large patent portfolio behind MG53. Doctorate in bioorganic chemistry from Texas A&amp;M University.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <div>
+        <div class="eyebrow">Get in touch</div>
+        <h2>Let's talk about a partnership.</h2>
+        <p style="color:var(--paper-dim); font-size:15.5px; max-width:480px;">TRIM-edicine works with established biomedical and pharmaceutical partners to move MG53, MG29, and ATAP toward patients. We welcome inquiries from investors, licensees, and development partners.</p>
+        <a href="mailto:info@trim-edicine.com" class="btn btn-primary" style="margin-top:8px;">Email info@trim-edicine.com</a>
+      </div>
+      <div class="contact-details">
+        <div>TRIM-edicine, Inc.</div>
+        <div>1275 Kinnear Road<br>Columbus, OH 43212-1155</div>
+        <div><a href="tel:+16144873695">+1 (614) 487-3695</a></div>
+        <div><a href="mailto:info@trim-edicine.com">info@trim-edicine.com</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-links">
+        <a href="#overview">Overview</a>
+        <a href="#proteins">Proteins</a>
+        <a href="#platform">Platform</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.trim-edicine.com/" target="_blank" rel="noopener">Official site &#8599;</a>
+      </div>
+      <div class="copyright">&copy; TRIM-edicine, Inc. Repairing Life.</div>
+    </div>
+    <p class="disclaimer">MG53, MG29, and ATAP are investigational and have not been approved by the FDA or any other regulatory authority. Statements on this site describe preclinical and early-stage clinical research and are not intended to diagnose, treat, cure, or prevent any disease.</p>
+  </div>
+</footer>
+
+<script>
+  document.querySelector('.menu-btn')?.addEventListener('click', function(){
+    var nav = document.querySelector('.navlinks');
+    if(nav.style.display === 'flex'){ nav.style.display = 'none'; }
+    else { nav.style.display = 'flex'; nav.style.position='absolute'; nav.style.top='60px'; nav.style.right='20px';
+           nav.style.background='var(--ink-2)'; nav.style.flexDirection='column'; nav.style.padding='18px 22px';
+           nav.style.border='1px solid var(--line-strong)'; nav.style.borderRadius='12px'; nav.style.gap='14px'; }
+  });
+</script>
+
+</body>
+</html>
