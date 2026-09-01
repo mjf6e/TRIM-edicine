@@ -215,6 +215,11 @@
   .team-kicker{font-family:'Manrope', sans-serif; font-weight:600; font-size:12.5px; color:var(--paper-dim); text-transform:uppercase; letter-spacing:.06em; margin:38px 0 16px;}
   .team-kicker:first-of-type{margin-top:0;}
 
+  /* ---- the mark ---- */
+  .mark-grid{display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start;}
+  .mark-grid p{color:var(--paper-dim); font-size:15.5px;}
+  .mark-grid .cite-line{font-family:'Manrope', sans-serif; font-weight:600; font-size:13px; color:var(--copper); letter-spacing:.04em; text-transform:uppercase;}
+
   /* ---- contact ---- */
   .contact-box{
     border:1px solid var(--line-strong); border-radius:20px; padding:52px;
@@ -237,7 +242,7 @@
   @media (max-width: 880px){
     .navlinks, .navcta{display:none;}
     .menu-btn{display:inline-block;}
-    .overview-grid, .deepdive, .contact-box{grid-template-columns:1fr;}
+    .overview-grid, .deepdive, .contact-box, .mark-grid{grid-template-columns:1fr;}
     .protein-grid{grid-template-columns:1fr;}
     .platform-list{grid-template-columns:1fr;}
     .team-grid{grid-template-columns:1fr;}
@@ -262,6 +267,7 @@
       <a href="#platform">Platform</a>
       <a href="#evidence">Evidence</a>
       <a href="#team">Team</a>
+      <a href="#mark">The Mark</a>
     </div>
     <a href="#contact" class="navcta">Get in touch</a>
     <button class="menu-btn" aria-label="Menu">&#9776;</button>
@@ -494,6 +500,26 @@
   </div>
 </section>
 
+<section id="mark">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">The meaning in the mark</div>
+      <h2>TRIM72, and the space nobody drew</h2>
+      <p>TRIM72 is the gene that encodes MG53, the protein at the center of this company's founding science. To trim is also to prune: to cut back with intention, not to weaken a branch but to direct its life toward what it was always meant to produce.</p>
+    </div>
+    <div class="mark-grid">
+      <div>
+        <blockquote>"I am the true vine, and my Father is the vinedresser. Every branch in me that does not bear fruit he takes away, and every branch that does bear fruit he prunes, that it may bear more fruit."</blockquote>
+        <p class="cite-line">John 15:1&ndash;2</p>
+      </div>
+      <div>
+        <p>The correction TRIM72 performs at the molecular level, cutting back to the root so the existing structure produces more of what it was already built to do, is the same correction the vinedresser describes. Nothing foreign is added. The source is repaired, and what it already knew how to do, it now does more of.</p>
+        <p>Look between the M and the E in the wordmark above. The gold square, and the white space around it, trace a cross. It was not drawn there on purpose. It identifies whose vine this company is named for.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="contact">
   <div class="wrap">
     <div class="contact-box">
@@ -522,6 +548,7 @@
         <a href="#platform">Platform</a>
         <a href="#evidence">Evidence</a>
         <a href="#team">Team</a>
+        <a href="#mark">The Mark</a>
         <a href="#contact">Contact</a>
         <a href="https://www.trim-edicine.com/" target="_blank" rel="noopener">Official site &#8599;</a>
       </div>
